@@ -50,12 +50,26 @@ export default function UsersListCC({ Set_UL_CC_GetEatNumber_Loading }) {
 
     return (
       <div className="tab__description-users">
-        <p>
-          Днес ще ядат - <span>{eatNumberForToday}</span>
+          {eatNumberForToday === 1 ? (
+            
+            <p className="column-p">
+            Днес ще ядат: <span>{eatNumberForToday} ученик</span>
+            </p>
+            ):(
+              <p className="column-p">
+              Днес ще ядат: <span>{eatNumberForToday} ученици</span>
+              </p>
+            )}
+        {eatNumberForTomorrow === 1 ? (
+
+          <p className="column-p">
+          До момента утре ще ядат: <span>{eatNumberForTomorrow} ученик</span>
         </p>
-        <p>
-          До момента утре ще ядат - <span>{eatNumberForTomorrow}</span>
-        </p>
+          ): (
+            <p className="column-p">
+            До момента утре ще ядат: <span>{eatNumberForTomorrow} ученици</span>
+          </p>
+          )}
       </div>
     );
   }

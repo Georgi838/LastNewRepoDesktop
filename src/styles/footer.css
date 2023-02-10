@@ -29,7 +29,7 @@
   background: linear-gradient(90deg, var(--header-footerFirstColor) 5.34%, var(--header-footerSecondColor) 100.78%);
 }
 .footer__image {
-  width: 100px;
+  width: 90px;
   transition: all 450ms ease;
 }
 .footer__image:hover {

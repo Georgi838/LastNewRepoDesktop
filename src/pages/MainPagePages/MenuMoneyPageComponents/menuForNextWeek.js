@@ -92,7 +92,7 @@ export default function MenuForThisWeek({
   };
 
   return (
-    <>
+    <div className="menu-center">
       <h3 className="week__title-two ">Въведете менюто за следващата седмица </h3>
       <div className="next-week" ref={divRef}>
         {newMeals.map((element) => (
@@ -144,6 +144,6 @@ export default function MenuForThisWeek({
           Запази меню
         </button>
       </div>
-    </>
+    </div>
   );
 }

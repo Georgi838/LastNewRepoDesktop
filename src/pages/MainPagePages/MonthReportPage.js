@@ -129,8 +129,8 @@ export default function MonthReport() {
       )}
       <div className={!loading ? null : "opacity-container"}>
         <div className="month__report--content-div">
-          <main className="main__section--MonthReportPage">
             <PageHeader />
+          <main className="main__section--MonthReportPage">
             <div className="there__was--no-div-but-i-wanted-padding-top-and-bottom ">
               <div className="month__report-df">
               <IconButton className="arrow-back  back-icon" aria-label="delete" size="small" onClick={goToMainPage}>

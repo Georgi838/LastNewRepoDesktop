@@ -57,7 +57,7 @@ export default function MenuMoneyCC({
           </div>
           <div className="display-flex-two">
             <p>
-              Цена за еденично ядене - <span>{priceOneMeal} лв.</span>
+              Цена за еденично ядене: <span>{priceOneMeal} лв.</span>
             </p>
           </div>
         </div>

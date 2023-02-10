@@ -15,10 +15,12 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(120deg, var(--background-firstColor) 15.34%, var(--background-secondColor)100.78%);
-  height: calc(95% - 90px);
+  height: calc(90.5% - 90px);
+ 
 }
 .auth-main-content-div {
   height: 100vh;
+  /* overflow:hidden; */
 }
 
 .opacity-container {

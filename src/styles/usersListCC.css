@@ -35,6 +35,7 @@ span {
   display: flex;
   width: 100%;
   padding: 12px;
+  padding-top:0;
   justify-content: center;
 }
 .button {
@@ -44,6 +45,16 @@ span {
   border: none;
   /* background: rgb(53, 188, 233); */
   font-size: 15px;
+}
+.column-p{
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.tab__description-users  {
+ 
 }
 
 

@@ -6,8 +6,8 @@
 }
 .menu__money--div p {
   font-size: var(--fs-550);
-  text-align:center;
-  margin-left:12px;
+  text-align:left!important;
+  margin-left:18px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -19,18 +19,18 @@
 .display-flex {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start!important;
   align-items: center;
-  width: 100%;
+  width: 50%;
   margin-right:24px;
-  max-width: 470px;
+  max-width: 670px;
 }
 .display-flex-two {
   display: flex;
   margin-top: 36px;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
   max-width: 470px;
 }
 .menu-display-flex {
@@ -59,25 +59,25 @@
   .menu__money--div p {
     font-size: var(--fs-530);
     text-align:center;
-  margin-left:12px;
     font-weight: 600;
   }
   .menu__money--div .button {
     margin-bottom: 12px;
   }
-  .display-flex-two {
+  /* .display-flex-two {
     max-width: 400px;
-  }
+  } */
+}
+@media only screen and (max-width: 960px){
+  .menu__money--div .button {
+    margin-top:12px;
+   }
 }
 @media only screen and (max-width: 845px) {
   .menu__money--div p {
     font-size: var(--fs-530);
-    text-align:center;
-  margin-left:12px;
     height: 100%;
     font-weight: 600;
   }
-  .display-flex {
-    max-width: 350px;
-  }
+ 
 }

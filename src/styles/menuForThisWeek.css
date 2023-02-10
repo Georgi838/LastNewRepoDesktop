@@ -1,8 +1,16 @@
+.menu-center{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+}
+
 .main-div-menuThisWeek {
   display: flex;
   flex-wrap: wrap;
   margin: 36px;
-  padding: 0px 8px;
+  padding: 0px ;
+  max-width:1500px;
   border-radius: 16px;
   justify-content: center;
   align-items: center;
@@ -30,7 +38,7 @@
   justify-content: space-around;
   /* height:250px; */
   overflow: hidden;
-  padding: 12px;
+  padding: 12px 16px;
   margin-right:12px;
   /* background: linear-gradient(360deg, var(--secondaryBackground-firstColor) 2.34%, var(--secondaryBackground-secondColor) 100.78%); */
   /* max-width:420px;

@@ -40,14 +40,17 @@ main
 */
 .month__report--content-div {
   height: 100vh;
+  overflow:hidden;
 }
 .main__section--MonthReportPage {
-  height: 100%;
+  height: 90%;
   background: linear-gradient(120deg, var(--background-firstColor) 15.34%, var(--background-secondColor) 100.78%);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  overflow:hidden;
+  padding-top:40px;
 }
 /*
 
@@ -60,6 +63,8 @@ go back button
   justify-content: space-between;
   width: 100%;
   padding: 12px;
+  margin-top:-24px;
+  
 }
 
 /*

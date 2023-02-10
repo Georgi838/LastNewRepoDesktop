@@ -29,11 +29,11 @@ main
 }
 .map-div:hover {
   overflow-x:hidden;
-  transform: scale(1.02);
+  transform: scale(1.04);
   box-shadow: 7px 8px 15px #010535c9;
 }
 .students-df {
-  padding: 16px;
+  padding: 16px 28px ;
   overflow:hidden;
   display: flex;
   width: 100%;
@@ -186,7 +186,6 @@ selector
 
 */
 .selector-title {
-  margin-left:40px;
   font-size: var(--fs-700);
 }
 .student-select {
@@ -250,7 +249,7 @@ select option {
   padding: 15px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .back-icon {
@@ -270,17 +269,23 @@ select option {
 .data{
   transition: all 450ms ease;
   /* margin:0 12px; */
-  font-size:22px;
+  font-size:18px;
+  width:100%;
   font-weight:600;
-  padding:16px;
-  min-width:40%;
+  padding:8px 24px;
+  margin:36px 0 12px 0;
+  /* min-width:40%; */
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(180deg, var(--lightBlue) 15.34%, #2280de 100.78%);
+  border-radius:48px;
+  max-width:380px!important;
 }
 
 .data:hover {
   transform: scale(1.04);
+  box-shadow: 6px 3px 10px #010535c9;
 }
 .padding-right{
  display: flex;

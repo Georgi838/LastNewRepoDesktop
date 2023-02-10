@@ -165,7 +165,6 @@ Big box css
 .single__box--child {
   width: 100%;
   overflow: hidden;
-  
 }
 .tab__description-menu {
   margin-right: 16px;
@@ -210,7 +209,7 @@ multiple things
   z-index: 1;
   transform: translateY(100%);
   transition: all 750ms ease;
-
+  text-align:left!important;
 }
 
 .menu-img,
@@ -331,7 +330,8 @@ dual boxes
 } 
 
 span {
-  color: #0b549d ;
+  color: #0b549d!important ;
   padding: 2px 6px;
-  font-size: 32px;
+  font-weight:bold;
+  font-size: 24px;
 }

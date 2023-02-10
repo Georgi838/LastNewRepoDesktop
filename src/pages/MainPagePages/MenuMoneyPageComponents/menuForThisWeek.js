@@ -54,7 +54,7 @@ export default function MenuForThisWeek({
     navigate("/mainPage");
   };
   return (
-    <div>
+    <div className="menu-center">
       <div className="go__back-div">
       <IconButton className="arrow-back back-icon" aria-label="delete" size="small" onClick={goToMainPage}>
             <ArrowBackIcon />
