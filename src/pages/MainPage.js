@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import image1 from "../images/menu.png";
 import image2 from "../images/users.png";
 import image3 from "../images/month.png";
-
-import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 
 import { useAuth } from "../AuthContext";
 

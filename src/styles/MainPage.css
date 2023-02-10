@@ -28,7 +28,8 @@ h4,
 p,
 label,
 button,
-input {
+input, 
+a{
   color: var(--text-color);
 }
 
@@ -36,7 +37,7 @@ button,
 .btn,
 .button {
   background: linear-gradient(180deg, var(--button-firstColor) 2.34%,  var(--button-secondColor) 100.78%) !important;
-  border-radius: 12px !important;
+  border-radius: 18px !important;
   border: none;
   outline: none;
   overflow: visible;
@@ -53,7 +54,7 @@ button,
 button:hover,
 .arrow-back:hover {
   transform: scale(1.03)!important;
-  box-shadow: 6px 3px 10px #010535c9 !important;
+  box-shadow: 5px 3px 10px #010535c9 !important;
 }
 
 /* maha strelkite v dqsna na inputite */
@@ -164,14 +165,17 @@ Big box css
 .single__box--child {
   width: 100%;
   overflow: hidden;
+  
 }
 .tab__description-menu {
   margin-right: 16px;
+  
 }
 .single__box:hover .tab__description-menu {
   visibility: visible;
   transform: translateY(-1%);
   overflow: hidden;
+ 
 }
 /*
 
@@ -206,6 +210,7 @@ multiple things
   z-index: 1;
   transform: translateY(100%);
   transition: all 750ms ease;
+
 }
 
 .menu-img,
@@ -328,5 +333,5 @@ dual boxes
 span {
   color: #0b549d ;
   padding: 2px 6px;
-  font-size: 22px;
+  font-size: 32px;
 }

@@ -3,15 +3,17 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useAuth } from "../../../AuthContext";
 
 import app from "../../../custom/firebase";
-import {
-  getFirestore,
-  doc,
-  updateDoc,
-  collection,
-  getDoc,
-  getDocs,
-} from "firebase/firestore";
-
+  import {
+    getFirestore,
+    doc,
+    updateDoc,
+    collection,
+    getDocs,
+    getDoc,
+    query,
+    where,
+  } from "firebase/firestore";
+  
 import "../../../styles/DisplayUsersList.css";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
@@ -21,23 +23,49 @@ const dbUsersUIDcollection = collection(db, "usersUID");
 const dbMealsCollection = collection(db, "meals");
 const dbInfoCollection = collection(db, "dbInfo");
 
+
 export default function DisplayUsersList({
   setDisplayUsersListLoading,
   setDisplayUsersListLoading2,
   boolean,
   setBoolean,
+   Set_UL_CC_GetEatNumber_Loading,
 }) {
   const { _TIME } = useAuth();
 
   const [priceToday, setPriceToday] = useState();
   const [priceYesterday, setPriceYesterday] = useState();
   const [usersInfo, setUsersInfo] = useState([]);
-  const [usersClass, setUsersClass] = useState(3);
+  const [usersClass, setUsersClass] = useState(1);
+  const [eatNumberForTomorrow, setEatNumberForTomorrow] = useState();
+const [eatNumberForToday, serEatNumberForToday] = useState();
 
   useEffect(() => {
     getUsers();
     getPrice();
+    GetEatNumber();
   }, [boolean]);
+
+  const GetEatNumber = async () => {
+    let eatNumberLet = 0;
+    const q = query(dbUsersUIDcollection, where("EatTrueFalse", "==", true));
+
+    await getDocs(q).then((res) => {
+      res.forEach(() => {
+        eatNumberLet++;
+      });
+      setEatNumberForTomorrow(eatNumberLet);
+    });
+
+    const docRef = doc(dbInfoCollection, "eatTimesForToday");
+
+    await getDoc(docRef).then((doc) => {
+      serEatNumberForToday(doc.data().eatTimesForToday);
+    });
+
+    // Set_UL_CC_GetEatNumber_Loading(false);
+  };
+
 
   const getUsers = async () => {
     await getDocs(dbUsersUIDcollection).then((docsSnap) => {
@@ -58,7 +86,7 @@ export default function DisplayUsersList({
     let docRefToday;
     let docRefYesterday;
 
-    if (_TIME >= 1 && _TIME < 6) {
+    if (_TIME >= 1 && _TIME <= 5) {
       docRefToday = doc(dbMealsCollection, `${_TIME}`);
       _TIME === 1
         ? (docRefYesterday = doc(dbMealsCollection, "5"))
@@ -80,9 +108,9 @@ export default function DisplayUsersList({
 
   function EatOrNotForDisplayUsers({ eatTrueOrFalse }) {
     if (eatTrueOrFalse) {
-      return <p className="student-div-middle">Ще яде!</p>;
+      return <p className="student-div-middle">Записан/а</p>;
     } else {
-      return <p className="student-div-middle">Няма да яде!</p>;
+      return <p className="student-div-middle">Не е записан/а</p>;
     }
   }
 
@@ -102,40 +130,51 @@ export default function DisplayUsersList({
 
             <EatOrNotForDisplayUsers eatTrueOrFalse={item.EatTrueFalse} />
 
+         
             <div className="student-div-middle-2">
-              <button className="btn" onClick={ButtonYES(item)}>
+              <button className="btn shadow-none" onClick={ButtonYES(item)}>
                 Да
               </button>
-              <button className="btn" onClick={ButtonNO(item)}>
+              <button className="btn shadow-none" onClick={ButtonNO(item)}>
                 Не
               </button>
             </div>
 
             <div className='student-div-middle-3'>
-                    <button className="btn" onClick={ButtonYES_PLUS(item)}>+1</button>
+                  {/* <p className="student-div-middle-title">Добави?</p> */}
+                    <button className="btn shadow-none" onClick={ButtonYES_PLUS(item)}>+</button>
+                    <button className="btn shadow-none" onClick={ButtonNO_MINUS(item)}>-</button>
             </div>
 
             <div className="student-div-middle-4">
-              <p>{(item.PriceDueThisMont).toFixed(2)}</p>
+            <p className="student-div-middle-title">Този месец:</p>
+              <p>{(item.PriceDueThisMont).toFixed(2)}лв.</p>
             </div>
 
             <div className="student-div-middle-4">
-              <p>{item.EatTimesThisMonth}</p>
+            <p className="student-div-middle-title">Ял/а до сега:</p>
+            {item.EatTimesThisMonth === 1 ? (
+               <p> {item.EatTimesThisMonth} път</p>
+            ): (
+
+              <p>{item.EatTimesThisMonth} пъти</p>
+            )}
             </div>
 
             <div className="student-div-middle-5">
+            <p className="student-div-middle-title">Дължи общо:</p>
               {item.PricePaid === true ? (
-                <p className="price-paid">{(item.PriceMustPay).toFixed(2)}</p>
+                <p className="price-paid">{(item.PriceMustPay).toFixed(2)}лв.</p>
               ) : (
-                <p className="price-not-paid">{(item.PriceMustPay).toFixed(2)}</p>
+                <p className="price-not-paid">{(item.PriceMustPay).toFixed(2)}лв.</p>
               )}
             </div>
 
             <div className="student-div-right">
-              <button className="btn" onClick={ButtonPaid(item)}>
+              <button className="btn shadow-none" onClick={ButtonPaid(item)}>
                 Платено
               </button>
-              <button className="btn" onClick={ButtonNotPaid(item)}>
+              <button className="btn shadow-none" onClick={ButtonNotPaid(item)}>
                 Неплатено
               </button>
             </div>
@@ -234,16 +273,19 @@ export default function DisplayUsersList({
 
       getDoc(docRef)
         .then((res) => {
+          if(res.data().CheckIndicatorPriceBoolean === true){
           setDisplayUsersListLoading(true);
           updateDoc(docRef, {
             EatTimesThisMonth: res.data().EatTimesThisMonth - 1,
             PriceDueThisMont: res.data().PriceDueThisMont - priceYesterday,
+            CheckIndicatorPriceBoolean: false,
           })
             .then(() => {
               setDisplayUsersListLoading(false);
               setBoolean(!boolean);
             })
             .catch((err) => console.log(err));
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -305,12 +347,16 @@ export default function DisplayUsersList({
 
   return (
     <div className="main-div-displayUsersList">
+      <div className="data-container">
+        <div className="data data-today">Днес ще ядат: <span>{eatNumberForToday}</span> </div>
+        <div className="data data-tomorrow">До момента утре ще ядат: <span>{eatNumberForTomorrow}</span></div>
+      </div>
       <div className="df students-df">
-
-          <IconButton className="arrow-back  back-icon" aria-label="delete" size="small" onClick={goToMainPage}>
-            <ArrowBackIcon />
-          </IconButton>
-       
+          <div className="icon-button-div">
+            <IconButton className="arrow-back  back-icon" aria-label="delete" size="small" onClick={goToMainPage}>
+              <ArrowBackIcon />
+            </IconButton>
+          </div>
         <h2 className="selector-title">Ученици от клас {usersClass}</h2>
         <div className="selector-caret">
           <select
@@ -326,7 +372,7 @@ export default function DisplayUsersList({
             }}
             value={usersClass}
           >
-            <option value="1">
+            <option  value="1">
               1
             </option>
             <option value="2">2</option>

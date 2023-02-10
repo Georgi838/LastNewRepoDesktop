@@ -98,11 +98,13 @@
           ]
         }
       ],
-      "icon": "./public/WSIconMac.png"
+      "icon": "./public/WSIcon.ico"
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./public/WSIcon.ico",
+      "uninstallerIcon": "./public/WSIcon.ico"
     }
   }
 }

@@ -13,7 +13,6 @@
   font-size: var(--fs-600);
   padding: 12px;
   font-weight: 600;
-  text-align: center;
 }
 
 @media only screen and (max-width: 1012px) {

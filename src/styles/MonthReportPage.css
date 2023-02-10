@@ -99,7 +99,7 @@ boxes
   transition: all 450ms ease;
 }
 .input {
-  width: 110%;
+  width: 95%;
   height: 2.5rem;
   margin: 12px;
   border: none;
@@ -131,7 +131,7 @@ boxes
 .label-content {
   background: linear-gradient(180deg, var( --titleTabColor-first) 15.34%,  var( --titleTabColor-second) 100.78%);
   width: 150%;
-  height: 100%;
+  padding:4px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -146,13 +146,25 @@ boxes
 @media only screen and (max-width: 1110px) {
   .column-month {
     min-width: 300px;
+    margin: 24px;
+    padding:36px  12px;
   }
-}
-@media only screen and (max-width: 893px) {
+    .column-month label {
+      padding-top: 8px;
+    }
+  }
+
+@media only screen and (max-width: 905px) {
   .column-month {
     width: 300px;
     margin: 24px;
-    padding: 36px;
+    padding:36px 12px;
+  }
+  .input {
+    width:90%;
+  }
+  .dateToday{
+    font-size:12px!important;
   }
   .column-month label {
     padding-top: 8px;

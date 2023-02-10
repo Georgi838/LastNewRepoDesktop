@@ -12,7 +12,7 @@
   display: flex;
   flex-wrap: wrap;
   font-weight: 600;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
 }
@@ -47,7 +47,7 @@
 }
 
 .menu__money--div .button {
-  margin-bottom: 12px;
+  margin-top:24px;
 }
 .menu--display-flex {
   display: flex;

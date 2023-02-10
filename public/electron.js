@@ -10,7 +10,7 @@ const isDev = require('electron-is-dev')
         height: 800,
         minWidth:836,
         minHeight:636,
-        icon: __dirname + './WSLogoWin.png',
+        icon: __dirname + '/WSLogoWin.png',
         webPreferences: {
             nodeIntegration: true,
             // devTools: false,

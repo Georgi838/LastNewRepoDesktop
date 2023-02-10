@@ -65,7 +65,7 @@
   /* background: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%); */
   font-size: var(--fs-400);
   font-weight: 600;
-  margin-top:6px;
+  margin-top:12px;
 }
 .label-content-three {
   background: linear-gradient(180deg, var( --titleTabColor-first) 15.34%,  var( --titleTabColor-second) 100.78%);
@@ -108,7 +108,7 @@
     max-height: 60px;
   }
   .main-div-menuThisWeek h3 {
-    padding-bottom: 48px;
+    /* padding-bottom: 48px; */
     width: 100%;
     font-size: var(--fs-300);
     overflow: hidden;

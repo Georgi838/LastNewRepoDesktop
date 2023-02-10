@@ -22,7 +22,7 @@
   height: 145px !important;
   display: flex;
   width: 100%;
-  padding: 15px 2px;
+  padding: 10px 2px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -39,5 +39,14 @@
   font-size: var(--fs-200);
   font-weight: 600;
   margin-left:12px;
-  margin-bottom: 6px;
+  padding-bottom:6px;
+}
+.help-me {
+  text-decoration: none;
+  padding-bottom:12px;
+  font-weight:600;
+  transition: all 600ms ease;
+}
+.help-me:hover {
+  transform:scale(1.08);
 }

@@ -80,7 +80,9 @@ export default function ChangeMoneyForBread({ setPriceForBread_loading }) {
       
       <div className="bread-money">
         <div className="price">
-          <p>Цена на хляба - {priceForBread}</p>
+          {priceForBread && 
+          <p>Цена на хляба - {priceForBread.toFixed(2)}</p>
+          }
           <div className="column-bread">
             <input
               value={priceForBreadNew}
@@ -90,7 +92,9 @@ export default function ChangeMoneyForBread({ setPriceForBread_loading }) {
           </div>
         </div>
         <div className="packages">
+          {breadPackages && 
           <p>Брой - {breadPackages}</p>
+          }
           <div className="column-bread">
             <input
               value={breadPackagesNew}

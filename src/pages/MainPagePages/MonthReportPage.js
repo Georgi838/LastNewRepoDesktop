@@ -42,12 +42,33 @@ export default function MonthReport() {
     const docRefSP = doc(dbInfoCollection, "systemPause");
 
     await getDoc(docRefMR).then((res) => {
-      setDayForMonthlyReportDisplay(res.data().dayForMonthlyReport)
+      let dateForMonthlyReport = new Date();
+      if(res.data().dayForMonthlyReport >= 1 && res.data().dayForMonthlyReport <= 31){
+        dateForMonthlyReport.setDate(res.data().dayForMonthlyReport);
+        setDayForMonthlyReportDisplay(`${dateForMonthlyReport.getDate(res.data().dayForMonthlyReport)}/${dateForMonthlyReport.getMonth() + 1}/${dateForMonthlyReport.getFullYear()}`);
+      }else{
+        setDayForMonthlyReportDisplay("Въведи дата от 1-ви до 31-ви");
+      }
     })
 
     await getDoc(docRefSP).then((res) => {
-      setSystemPauseDateFromDisplay(res.data().systemPauseDateFROM)
-      setSystemPauseDateToDisplay(res.data().systemPauseDateTO)
+      let dateSystemPauseDateFrom = new Date();
+      let dateSystemPauseDateTo = new Date();
+
+
+      if(res.data().systemPauseDateFROM >= 1 && res.data().systemPauseDateFROM <= 31){
+        dateSystemPauseDateFrom.setDate(res.data().systemPauseDateFROM)
+        setSystemPauseDateFromDisplay(`${dateSystemPauseDateFrom.getDate(res.data().systemPauseDateFROM)}/${dateSystemPauseDateFrom.getMonth() + 1}/${dateSystemPauseDateFrom.getFullYear()}`)
+      }else{
+        setSystemPauseDateFromDisplay("Въведи дата от 1-ви до 31-ви");
+      }
+      if(res.data().systemPauseDateTO >= 1 && res.data().systemPauseDateTO <= 31){
+        dateSystemPauseDateTo.setDate(res.data().systemPauseDateTO)
+        setSystemPauseDateToDisplay(`${dateSystemPauseDateTo.getDate(res.data().systemPauseDateTO)}/${dateSystemPauseDateTo.getMonth() + 1}/${dateSystemPauseDateTo.getFullYear()}`)
+      }else{
+        setSystemPauseDateToDisplay("Въведи дата от 1-ви до 31-ви");
+      }
+      
     })
   }
 

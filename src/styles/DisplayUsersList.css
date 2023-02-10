@@ -24,7 +24,7 @@ main
   height: 100%;
   /* padding-top: 440px; */
   border-radius: 12px;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
   transition: all 450ms ease;
 }
 .map-div:hover {
@@ -33,12 +33,15 @@ main
   box-shadow: 7px 8px 15px #010535c9;
 }
 .students-df {
-  margin: 16px;
-  padding-left: 6px;
+  padding: 16px;
+  overflow:hidden;
   display: flex;
-  width: 91.5%;
+  width: 100%;
+  padding-top:12px;
   align-items: center;
   justify-content: space-between;
+  overflow:hidden;
+ 
 }
 /*
 
@@ -48,21 +51,21 @@ row
 .student-div {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   display: grid;
-  min-height: 90px;
+  min-height: 95px;
   overflow: visible;
   grid-template-columns: 200px repeat(6, 1fr) 150px;
   /* margin: 1.5em 0; */
   transition: all 300ms ease;
   /* background: linear-gradient(90deg, var(--lightBlue) 15.34%, #2280de 100.78%); */
   background: linear-gradient(180deg, var(--lightBlue) 15.34%, #2280de 100.78%);
-  border-radius: 12px;
+  border-radius: 18px;
   margin: 6px ;
-  padding: 16px 8px;
+  padding: 8px;
   height: 85px;
-  
+  padding-bottom:6px;
   margin-bottom: 12px;
 }
 .student-div:hover {
@@ -78,7 +81,7 @@ row
 .student-div-middle {
   text-align: center;
   align-items: center;
-  margin-left: 8px;
+  /* margin-left: 8px; */
 }
 
 .student-div-middle-2 {
@@ -92,19 +95,32 @@ row
 }
 
 .student-div-middle-3 {
-  text-align: center;
-  /* padding: 8px; */
+  display: flex;
+ flex-direction:column;
+ align-items: center;
+ justify-content: center;
+  padding:10px;
 }
 
+
 .student-div-middle-4 {
-  text-align: center;
-  align-items: center;
+  height:90%;
+  display: flex;
+ flex-direction:column;
+ align-items: center;
+ justify-content: center;
+text-align:center;
 }
 
 .student-div-middle-5 {
-  text-align: center;
-  align-items: center;
+ display: flex;
+ flex-direction:column;
+ align-items: center;
+ height:90%;
+ justify-content: center;
+ text-align:center;
 }
+
 
 .price-paid {
   color: rgb(39, 11, 153);
@@ -118,13 +134,13 @@ row
   margin-left: 0.5em;
 }
 #number {
-  width: 50%;
+  width: 40%;
   text-align: left;
-  margin-right: 10px;
+  align-items:center;
   font-size: 16px;
 }
 #name {
-  width: 120%;
+  width: 100%;
 }
 .map-div p {
   /* width: 70%; */
@@ -140,16 +156,21 @@ row
   border: none;
   /* background: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%); */
   font-size: 15px;
-  margin: 4px;
+  margin: 6px;
   min-width: 50px;
 }
+
+.shadow-none:hover {
+  box-shadow:unset!important;
+}
+
 .student-div-right button {
-  min-width: 90px;
+  min-width: 100px;
   padding: 4px;
   margin-right: 8px;
 }
 .student-div-right button {
-  min-width: 90px;
+  min-width: 100px;
   padding: 4px;
   margin-right: 8px;
 }
@@ -158,14 +179,14 @@ row
   justify-content: space-between;
   align-items: center;
 }
+
 /*
 
 selector
 
 */
 .selector-title {
-  margin-bottom: 12px;
-  margin-left:150px;
+  margin-left:40px;
   font-size: var(--fs-700);
 }
 .student-select {
@@ -176,7 +197,7 @@ selector
   background: transparent;
   text-align: center;
   font-weight: 600;
-  /* -webkit-appearance: none; */
+  -webkit-appearance: none;
   border: none;
   outline: none;
   margin-top: 8px;
@@ -203,7 +224,7 @@ selector
   background: linear-gradient(90deg, var(--button-firstColor) 15.34%, var(--button-secondColor) 100.78%);
   border-radius: 16px;
   height: 40px;
-  margin: 20px;
+  margin: 20px 0;
   overflow: hidden;
   transition: all 450ms ease;
 }
@@ -216,6 +237,7 @@ select option {
   font-weight: 600;
 }
 
+
 /* .student-select-div {
   display: flex;
   flex-direction: column;
@@ -223,14 +245,58 @@ select option {
   justify-content: center;
 } */
 
+.icon-button-div{
+  width: 150px;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .back-icon {
   padding: 6px 16px;
   
 }
+
+.data-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  width:100%;
+  padding:20px 0px;
+}
+
+.data{
+  transition: all 450ms ease;
+  /* margin:0 12px; */
+  font-size:22px;
+  font-weight:600;
+  padding:16px;
+  min-width:40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.data:hover {
+  transform: scale(1.04);
+}
+.padding-right{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+@media only screen and (max-width: 1206px) {
+  .student-div-middle-title{
+   margin-left:4px!important;
+   margin-right:4px!important;
+   max-width:80px;
+  }
+}
 @media only screen and (max-width: 950px) {
-  .map-div p {
-    /* width: 70%; */
-    font-size: 15px;
+  .map-div p{
+    
+    font-size: 14px;
   }
 }

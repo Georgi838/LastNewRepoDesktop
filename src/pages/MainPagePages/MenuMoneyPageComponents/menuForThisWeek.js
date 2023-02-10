@@ -31,6 +31,8 @@ export default function MenuForThisWeek({
   boolean,
 }) {
   const [meals, setMeals] = useState([]);
+  
+ 
 
   useEffect(() => {
     getMeals();
@@ -60,19 +62,24 @@ export default function MenuForThisWeek({
         <h3 className="week__title">Тази седмица </h3>
         <div></div>
       </div>
+      
       <div className="main-div-menuThisWeek">
+
         {meals.map((element) => (
-          <div key={element.dayOfTheWeek}>
+          <div className="fix" key={element.dayOfTheWeek}>
             <div className="label-content-two">
               <p className="para">{dayOfTheWeekInBG[element.indexKey]}</p>
             </div>
+            <div className="main-div-menuThisWeek-div">
             <h3>Първо - {element.firstMeal}</h3>
             <h3>Второ - {element.secondMeal}</h3>
             <h3>Трето - {element.thirdMeal}</h3>
-            <h3 className="cena">Цена - {element.price.toFixed(2)}</h3>
+            <h3 className="cena">Цена: {element.price.toFixed(2)}лв.</h3>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+        </div>
+   
   );
 }

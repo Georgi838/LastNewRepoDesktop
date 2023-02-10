@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useAuth } from "../../AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -7,22 +7,18 @@ import app from "../../custom/firebase";
 import {
   getFirestore,
   doc,
-  updateDoc,
   collection,
   getDoc,
 } from "firebase/firestore";
 
 const db = getFirestore(app);
-const dbUsersUIDcollection = collection(db, "usersUID");
 const dbMealsCollection = collection(db, "meals");
-const dbInfoCollection = collection(db, "dbInfo");
 
 export default function MenuMoneyCC({
   Set_MM_CC_GetMeals_Loading,
-  Set_MM_CC_GetPrice_Loading,
 }) {
   const navigate = useNavigate();
-  const { currentUser, _TIME } = useAuth();
+  const { _TIME } = useAuth();
 
   const [priceOneMeal, setPriceOneMeal] = useState();
 
@@ -35,13 +31,13 @@ export default function MenuMoneyCC({
   };
 
   function GetMeals() {
-    // console.log(_TIME)
+   
     let docRef;
     _TIME >= 1 && _TIME < 6
       ? (docRef = doc(dbMealsCollection, `${_TIME}`))
       : (docRef = doc(dbMealsCollection, "1"));
 
-    // docRef = doc(dbMealsCollection, "2");
+   
 
     getDoc(docRef).then((res) => {
       setFirstMeal(res.data().firstMeal);
@@ -61,7 +57,7 @@ export default function MenuMoneyCC({
           </div>
           <div className="display-flex-two">
             <p>
-              Цена за еденично ядене - <span>{priceOneMeal}</span>
+              Цена за еденично ядене - <span>{priceOneMeal} лв.</span>
             </p>
           </div>
         </div>

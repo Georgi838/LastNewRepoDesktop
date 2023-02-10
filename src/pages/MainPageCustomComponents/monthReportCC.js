@@ -15,7 +15,7 @@ export default function MonthReportCC() {
         <p>Месечни отчети, почивки</p>
         <div className="btn-content">
           <button className="button" onClick={goToMonthReport}>
-            Към месеченият отчет
+            Към месечения отчет
           </button>
         </div>
       </a>

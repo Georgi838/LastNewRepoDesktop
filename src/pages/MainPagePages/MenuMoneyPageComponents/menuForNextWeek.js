@@ -93,7 +93,7 @@ export default function MenuForThisWeek({
 
   return (
     <>
-      <h3 className="week__title-two ">Следващата седмица </h3>
+      <h3 className="week__title-two ">Въведете менюто за следващата седмица </h3>
       <div className="next-week" ref={divRef}>
         {newMeals.map((element) => (
           <div className="next-week-menu" key={element.dayOfTheWeek}>
