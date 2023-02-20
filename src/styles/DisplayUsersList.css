@@ -269,18 +269,18 @@ select option {
 .data{
   transition: all 450ms ease;
   /* margin:0 12px; */
-  font-size:18px;
+  font-size:17px;
   width:100%;
   font-weight:600;
   padding:8px 24px;
-  margin:36px 0 12px 0;
+  margin:36px 12px 12px 12px;
   /* min-width:40%; */
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(180deg, var(--lightBlue) 15.34%, #2280de 100.78%);
   border-radius:48px;
-  max-width:380px!important;
+  max-width:410px!important;
 }
 
 .data:hover {

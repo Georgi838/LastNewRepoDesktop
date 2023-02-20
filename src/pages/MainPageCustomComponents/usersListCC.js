@@ -53,21 +53,21 @@ export default function UsersListCC({ Set_UL_CC_GetEatNumber_Loading }) {
           {eatNumberForToday === 1 ? (
             
             <p className="column-p">
-            Днес ще яде: <span>{eatNumberForToday} ученик</span>
+            Днес ще обядва: <span>{eatNumberForToday} ученик</span>
             </p>
             ):(
               <p className="column-p">
-              Днес ще ядат: <span>{eatNumberForToday} ученици</span>
+              Днес ще обядват: <span>{eatNumberForToday} ученици</span>
               </p>
             )}
         {eatNumberForTomorrow === 1 ? (
 
           <p className="column-p">
-          До момента утре ще яде: <span>{eatNumberForTomorrow} ученик</span>
+          До момента утре ще обядва: <span>{eatNumberForTomorrow} ученик</span>
         </p>
           ): (
             <p className="column-p">
-            До момента утре ще ядат: <span>{eatNumberForTomorrow} ученици</span>
+            До момента утре ще обядват: <span>{eatNumberForTomorrow} ученици</span>
           </p>
           )}
       </div>
