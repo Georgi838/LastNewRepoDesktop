@@ -349,13 +349,13 @@ const [eatNumberForToday, serEatNumberForToday] = useState();
     <div className="main-div-displayUsersList">
       <div className="data-container">
         {eatNumberForToday === 1 ? (
-          <div className="data data-today">Днес ще ядат:<span>{eatNumberForToday}</span>ученик</div>
+          <div className="data data-today">Днес ще яде:<span>{eatNumberForToday}</span>ученик</div>
         ):(
           <div className="data data-today">Днес ще ядат:<span>{eatNumberForToday}</span>ученици</div>
         )}
         {eatNumberForTomorrow === 1 ? (
 
-          <div className="data data-tomorrow">До момента утре ще ядат:<span>{eatNumberForTomorrow}</span>ученик</div>
+          <div className="data data-tomorrow">До момента утре ще яде:<span>{eatNumberForTomorrow}</span>ученик</div>
           ): (
             <div className="data data-tomorrow">До момента утре ще ядат:<span>{eatNumberForTomorrow}</span>ученици</div>
           )}
