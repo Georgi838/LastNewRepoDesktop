@@ -150,9 +150,9 @@ const [eatNumberForToday, serEatNumberForToday] = useState();
             <p className="student-div-middle-title">Този месец:</p>
               <p>{(item.PriceDueThisMont).toFixed(2)}лв.</p>
             </div>
-
+ 
             <div className="student-div-middle-4">
-            <p className="student-div-middle-title">Ял/а до сега:</p>
+            <p className="student-div-middle-title">Обядвал/а до сега:</p>
             {item.EatTimesThisMonth === 1 ? (
                <p> {item.EatTimesThisMonth} път</p>
             ): (
