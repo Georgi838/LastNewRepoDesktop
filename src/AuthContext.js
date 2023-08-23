@@ -17,64 +17,64 @@ export function useAuth() {
 export function AuthProvider({ children }) {
 
 const navigate = useNavigate();
-const [currentUser, setCurrentUser] = useState();
+const [currentUser, setCurrentUser] = useState(true);
 const [loading, setLoading] = useState(false);
 const [_TIME, set_TIME] = useState();
 
-function userSighIn (email, password){
-    setLoading(true);
-    auth.signInWithEmailAndPassword(email, password).then(u => console.log("LogIn")).catch(err =>{
-        setLoading(false);
-        alert("Грешен имейл или парола!");
-    });
-}
+// function userSighIn (email, password){
+//     setLoading(true);
+//     auth.signInWithEmailAndPassword(email, password).then(u => console.log("LogIn")).catch(err =>{
+//         setLoading(false);
+//         alert("Грешен имейл или парола!");
+//     });
+// }
 
-function userSingOut () {
-    auth.signOut(auth).then(() =>{
-        console.log("SignOut")
-        navigate("/");
-        window.location.reload();
-    }).catch(err => {
-        setLoading(false);
-    });
-}
+// function userSingOut () {
+//     auth.signOut(auth).then(() =>{
+//         console.log("SignOut")
+//         navigate("/");
+//         window.location.reload();
+//     }).catch(err => {
+//         setLoading(false);
+//     });
+// }
 
-useEffect(() =>{
+// useEffect(() =>{
 
-    const docRef = doc(dbInfoCollection, "time");
-    getDoc(docRef).then(res =>{
-      set_TIME(res.data().dayToday.toDate().getDay());
-    }).catch(err => console.log(err));
+//     const docRef = doc(dbInfoCollection, "time");
+//     getDoc(docRef).then(res =>{
+//       set_TIME(res.data().dayToday.toDate().getDay());
+//     }).catch(err => console.log(err));
 
 
 
-    const unsubscribe = auth.onAuthStateChanged(user => {
-        if(user){
-            setLoading(true);
-            const docRef = doc(dbUsersUIDcollection, user.uid);
+//     const unsubscribe = auth.onAuthStateChanged(user => {
+//         if(user){
+//             setLoading(true);
+//             const docRef = doc(dbUsersUIDcollection, user.uid);
 
-            getDoc(docRef).then(res =>{
-                if(res.data().role === "administrator"){
-                    setLoading(false);
-                    setCurrentUser(user);
-                    navigate("mainPage");
-                }else{
-                    setLoading(false);
-                    alert("Грешен имейл или парола!");
-                    userSingOut();
-                }
-            })
-        }
-    })
+//             getDoc(docRef).then(res =>{
+//                 if(res.data().role === "administrator"){
+//                     setLoading(false);
+//                     setCurrentUser(true);
+//                     navigate("mainPage");
+//                 }else{
+//                     setLoading(false);
+//                     alert("Грешен имейл или парола!");
+//                     userSingOut();
+//                 }
+//             })
+//         }
+//     })
 
-    return unsubscribe;
+//     return unsubscribe;
     
-},[])
+// },[])
 
 const value = {
     currentUser,
-    userSighIn,
-    userSingOut,
+    // userSighIn,
+    // userSingOut,
     loading,
     _TIME,
 }

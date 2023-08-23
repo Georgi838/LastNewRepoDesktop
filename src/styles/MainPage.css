@@ -271,7 +271,7 @@ dual boxes
   width: 96vw;
   padding: 8px;
   max-height: 50%;
-  /* margin:10px; */
+  margin:10px;
   overflow: hidden;
   padding-bottom: 18px;
   box-sizing: content-box;
@@ -326,6 +326,7 @@ dual boxes
 
   .one__more--div {
     grid-column: 2;
+    
   }
 } 
 

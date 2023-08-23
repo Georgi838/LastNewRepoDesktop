@@ -3,7 +3,9 @@ import "../../styles/header.css";
 import logo from "../../images/logo.png";
 import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 import { useAuth } from "../../AuthContext";
+import {  useNavigate } from "react-router-dom";
 export default function PageHeader() {
+  const navigate = useNavigate();
   const { userSingOut, currentUser } = useAuth();
   return (
     <header className="header">
@@ -15,7 +17,8 @@ export default function PageHeader() {
         <h3 className="sub-title">ADMIN</h3>
       </div>
       {currentUser ? (
-        <button className="logOut-btn" onClick={userSingOut}>
+        <button className="logOut-btn" onClick={() => navigate("/")}>
+          {/* userSingOut */}
           Излез
         </button>
       ) : (

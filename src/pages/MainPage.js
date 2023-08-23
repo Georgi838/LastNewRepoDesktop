@@ -42,17 +42,18 @@ function MainPage() {
   };
 
   return (
-    <div className={!loading ? null : "disable-events"}>
-      {!loading ? null : (
-        <GridLoader className="loader" color="#1D566B" size={30} />
-      )}
-      <div
-        className={
-          !loading
-            ? "main-main-content-div"
-            : "main-main-content-div opacity-container"
-        }
-      >
+    // <div className={!loading ? null : "disable-events"}>
+    //   {!loading ? null : (
+    //     <GridLoader className="loader" color="#1D566B" size={30} />
+    //   )}
+    //   <div
+    //     className={
+    //       !loading
+    //         ? "main-main-content-div"
+    //         : "main-main-content-div opacity-container"
+    //     }
+    //   >
+    <>
         <PageHeader />
 
         <main className="main__section--MainPage">
@@ -62,7 +63,7 @@ function MainPage() {
                 <MenuMoneyCC
                   className="single__box--child"
                   Set_MM_CC_GetMeals_Loading={Set_MM_CC_GetMeals_Loading}
-                />
+                  />
                 <img className="menu-img" src={image1} alt="55" />
               </div>
             </div>
@@ -93,9 +94,10 @@ function MainPage() {
         </main>
 
         <PageFooter />
-      </div>
-    </div>
-  );
+        </>
+      );
+      {/* </div>
+    </div> */}
 }
 
 export default MainPage;
